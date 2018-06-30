@@ -5,3 +5,10 @@
 a{
     text-decoration: none;
 }
+li{
+    list-style: none;
+}
+#wrapper {
+    margin: 0 auto;
+    width: 1230px;
+}

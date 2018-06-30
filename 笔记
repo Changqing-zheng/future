@@ -19,3 +19,6 @@ javascript - 页面的交互
 
 选择id的时候 在style里加#  选择class的时候 在style里加.
 一个div想要取多个class名字时  中间加空格即可
+
+clear：both 是消除别人带个自己的影响
+float：（left or right）是不想让自己（左或右）浮动
