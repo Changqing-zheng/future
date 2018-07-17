@@ -1,12 +1,19 @@
+/*************header开始*****************/
 #header{
     height:32px;
     background: #f5f5f5;
     border-bottom:1px solid #e5e5e5;
     line-height: 32px;
     font-size: 12px;
+    color: #fff;
+}
+.wrapper p{
     color: #999;
 }
-#wrapper a:hover{
+#a1:hover{
+    color: #ff0036;
+}
+#a2:hover{
     color: #ff0036;
 }
 #a1{
@@ -23,22 +30,26 @@
 #list-menu{
     float: right;
 }
-.menu{
-    float: left;
-}
 .menu a{
     color: #999;
     font-size: 12px;
     height: 32px;
     line-height: 32px;
 }
-#menu1,#menu3,#menu6,#menu7{
+#list-menu .menu{
+    float: left;
+}
+#list-menu .menu-hd1{
     padding-left: 10px;
     padding-right: 14px;
+    position: relative;
 }
-#menu2,#menu4,#menu5{
+#list-menu .menu-hd2{
     padding-left: 10px;
     padding-right: 10px;
+}
+#list-menu .menu-hd2 span{
+    color: #666;
 }
 #line{
     width: 0;
@@ -49,5 +60,281 @@
 }
 #list-menu .iconfont{
     color: red;
-    font-size: 16px;
+    font-size: 12px;
 }
+#list-menu .menu-hd1::after{
+    content: '';
+    width: 0;
+    border: 3px solid transparent;
+    border-top-color: #bbb;
+    position: absolute;
+    top: 14px;
+    right: 4px;
+}
+#list-menu .menu-hd1:hover::after {
+    transform: rotate(180deg);
+    transition: transform .2s linear;
+    transform-origin: 3px 1.5px;
+}
+#list-menu .menu-hd1:hover {
+    background: #fff;
+}
+#list-menu .menu-hd1:hover a{
+    color: #ff0036;
+    text-decoration: underline;
+}
+#list-menu .menu-hd2:hover a{
+    color: red;
+}
+#list-menu .menu-hd2:hover .iconfont{
+    color:red;
+}
+#list-menu .sub-menu1{
+    border: 1px solid #f2f2f2;
+    border-top: 0;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 72px;
+    display: none;
+    z-index: 1;
+    background: #fff;
+    padding: 8px;
+}
+#list-menu .menu-hd1:hover .sub-menu1{
+    display: block;
+}
+#list-menu .menu-hd1:hover .sub-menu1 a{
+    text-decoration: none;
+    color:#666;
+}
+#list-menu .menu-hd1 .sub-menu1 a:hover{
+    text-decoration:underline;
+    color:#ff0036;
+}
+#list-menu .sub-menu2{
+    border: 1px solid #f2f2f2;
+    border-top: 0;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    display: none;
+    z-index: 1;
+    width: 100px;
+}
+#list-menu .sub-menu3{
+    color: #000000;
+    padding: 0 5px;
+}
+#list-menu .menu-hd1:hover .sub-menu2{
+    display: block;
+}
+#list-menu .menu-hd1:hover .sub-menu2 a{
+    text-decoration: none;
+    color:#666;
+}
+#list-menu .menu-hd1 .sub-menu2 a:hover{
+    text-decoration:underline;
+    color:#ff0036;
+}
+#list-menu .menu-hd1:hover .support-div{
+     display: block;
+     color: #666;
+ }
+#list-menu .menu-hd1 .support-div{
+    display: none;
+    width: 120px;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background: #fff;
+    z-index: 1;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    border-top: 0;
+}
+#list-menu .menu-hd1:hover .support-div a{
+    text-decoration:none;
+    color:#666;
+}
+#list-menu .menu-hd1 .support-div a:hover{
+    text-decoration:underline;
+    color:#ff0036;
+}
+#list-menu .sub-menu4{
+    display: inline;
+    padding: 0 2px;
+}
+#list-menu .sub-menu5{
+    padding: 5px;
+    border-bottom: 1px dotted #666;
+}
+
+/*************header结束*****************/
+/*************search开始*****************/
+#search{
+    background: #fff;
+    height: 130px;
+}
+#logo{
+    width: 240px;
+    height: 130px;
+    margin: 1px 0 0 -20px;
+}
+#navigation-bar{
+    width: 483px;
+    height: 26px;
+    padding: 5px 1px 5px 5px;
+    border: 2px solid #ff0036;
+}
+button{
+    width: 132px;
+    height: 40px;
+    background:#ff0036;
+    border:#ff0036;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 5px;
+    float: right;
+}
+#navigation-bar-top{
+    width: 625px;
+    height: 106px;
+    float: right;
+    position: absolute;
+    top: 50px;
+    left: 302px;
+}
+#navigation-bar-bottom .option1{
+    color: #999;
+    font-size: 14px;
+}
+#navigation-bar-bottom .option2{
+    color: #ff0036;
+    font-size: 14px;
+}
+#navigation-bar-bottom .option-li{
+    width: 42px;
+    height: 20px;
+    border-right: 1px solid #ccc;
+    float: left;
+    padding: 0 12px;
+    margin-top: 7px;
+}
+/*************search结束*****************/
+/*************inner开始*****************/
+#inner1{
+    background: red;
+    width: 200px;
+    height: 36px;
+    line-height: 36px;
+    float: left;
+}
+#inner1 .iconfont{
+    color: #fff;
+    padding-left: 14px;
+    margin-right: 4px;
+}
+#inner1 span{
+    color: #fff;
+}
+#inner2{
+    width: 1030px;
+    height: 35px;
+    float: left;
+}
+#inner2 .picture{
+    width: 100px;
+    height: 30px;
+    margin-top: 3px;
+    display: block;
+    float: left;
+}
+#inner2 .picture-a{
+    display: block;
+    float: left;
+    padding: 0 8px;
+}
+#picture-ul{
+    display: inline;
+}
+#picture-ul .picture-li{
+    color: #333333;
+    display: inline;
+}
+#picture-ul .picture-li a{
+    height: 35px;
+    width: 64px;
+    padding: 0 8px;
+    color: #333333;
+    line-height: 35px;
+}
+#picture-ul .picture-li a:hover{
+    color: #ff0036;
+}
+/*************inner结束*****************/
+/*************banner开始*****************/
+#banner{
+    border-top: 2px solid #ff0036;
+}
+#nav2 a{
+    display: block;
+    width: 1230px;
+    margin: 0 auto;
+}
+#nav1{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.55);
+    width: 200px;
+    height: 500px;
+}
+#nav1 .nav1-li a{
+    color: #ffffff;
+}
+#nav1 .nav1-li{
+    width: 182px;
+    height: 31px;
+    line-height: 31px;
+    font-size: 14px;
+}
+#nav1 .nav1-li i{
+    margin-left: 14px;
+    margin-right: 4px;
+    color: #999;
+}
+/*************banner结束*****************/
+/*************maintop结束*****************/
+#maintop>.wrapper{
+    padding-top: 24px;
+    padding-right: 30px;
+    height: 370px;
+}
+#maintop .head .cn{
+    font-size: 18px;
+    color: #333333;
+    height: 54px;
+    display: inline-block;
+    line-height: 54px;
+    font-weight: bold;
+}
+#maintop .head .en{
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333333;
+    height: 54px;
+    display: inline-block;
+    line-height: 54px;
+    font-weight: bold;
+}
+#maintop .head .more2{
+    width: 18px;
+    height: 18px;
+}
+#maintop .head .more1{
+    width: 56px;
+    height: 54px;
+    display: inline-block;
+    line-height: 54px;
+    margin: 0 9px;
+}
+/*************maintop结束*****************/
