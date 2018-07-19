@@ -5,7 +5,7 @@ css  -  页面的样式
 javascript - 页面的交互
 
 行级元素a span img i-- 水平排布,靠内容撑开的
-块级元素p h1~h6 table div ul ol li --垂直分布  宽充满整个父元素 能设置宽和高
+块级元素p、h1~h6、table、div、ul、ol、li--垂直分布  宽充满整个父元素 能设置宽和高
                                      如果不设置高 高就是内容撑开的
 
         id > class > tag      后代选择器 子代选择器 分组选择器 标签选择器（tag）多类选择器（.a.b 不加空格）
@@ -30,9 +30,11 @@ float：（left or right）是不想让自己（左或右）浮动
                      border-top-color:red;
                      }
 
-定位： position:static;(浏览器一般默认为 static)
-       position:relative;(相对定位  定位对象为自己的初始化位置)
+定位： position:static;(浏览器一般默认为 static)       position:relative;(相对定位  定位对象为自己的初始化位置,不脱离文档流（空间不释放）)
        position:absolute;(绝对定位  定位对象为距离它本身最近的有定位的父元素， 否则为body)
        position:fixed;(固定定位  相对于浏览器 例如：某些网站上的固定在浏览器某一位置的广告)
 
 input 常用 placeholder(文本框内有字，但是点击就消失)
+...(怎么实现)  :   overflow:hidden;
+	                text-overflow:ellipsis;
+	                white-space:nowrap;(解决兼容性问题，一般不加)
