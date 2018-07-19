@@ -38,3 +38,6 @@ input 常用 placeholder(文本框内有字，但是点击就消失)
 ...(怎么实现)  :   overflow:hidden;
 	                text-overflow:ellipsis;
 	                white-space:nowrap;(解决兼容性问题，一般不加)
+
+js
+=== 表示既比较值也比较类型
