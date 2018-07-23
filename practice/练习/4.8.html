@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for(var x = 1000 ; x < 10000 ; x++){
+        if(x % 13 == 0){
+            var a = Math.floor(x / 100) % 10
+            var b = Math.floor(x / 10) % 10
+            var c = Math.floor(x / 1000) % 10
+            if(c == a + b){
+                console.log(x);
+            }
+        }
+    }
+</script>
+</body>
+</html>
