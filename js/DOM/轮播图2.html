@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+        li,span{
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            float: left;
+            background: #000;
+            color: #fff;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .nav{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .imgs img{
+            width: 520px;
+            height: 280px;
+            position: absolute;
+            display: none;
+        }
+        .narrow{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .nav .li1{
+            background: yellow;
+        }
+        .imgs .img1{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="imgs">
+            <img src="banner1.jpg" alt="" class="img1">
+            <img src="cart.ipg.jpg" alt="">
+            <img src="xijiejing.jpg" alt="">
+            <img src="zhichou.jpg" alt="">
+        </div>
+        <ul class='nav'>
+            <li class="li1">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul class="narrow">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </ul>
+    </div>
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        var aImg = document.getElementsByTagName('img');
+        var oPrve = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var oContainer = document.getElementById('container')
+        var nowxx = 0;
+        for(var i = 0 ; i < aLi.length ; i++){
+            aLi[i].xx = i;
+            aLi[i].onmouseover = function () {
+              changeImg(this.xx)
+            }
+        }
+        oPrve.onclick = function () {
+            nowxx--;
+            if(nowxx == -1){
+                nowxx = aLi.length - 1;
+            }
+            changeImg(nowxx);
+        }
+        oNext.onclick = function () {
+            nowxx++;
+            if(nowxx == aLi.length){
+                nowxx = 0;
+            }
+            changeImg(nowxx);
+        }
+        function changeImg(nowxx) {
+            for(var j = 0 ; j < aLi.length ; j++){
+                aLi[j].className = '';
+                aImg[j].className = '';
+            }
+            aLi[nowxx].className = 'li1';
+            aImg[nowxx].className = 'img1';
+        }
+
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function () {
+            play();
+        }
+        play();
+        function play() {
+            timer = setInterval(function () {
+                oNext.onclick();
+            },1000)
+        }
+
+
+    </script>
+</body>
+</html>

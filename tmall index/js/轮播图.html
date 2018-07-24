@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            font-size: 18px;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: #ccc;
+            color: #fff;
+        }
+        #a1{
+            background: #00b262;
+        }
+        li{
+            float: left;
+            list-style: none;
+            display: block;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000000;
+            position: relative;
+        }
+        img{
+            height: 250px;
+        }
+        .footer{
+            position: absolute;
+            top: 50px;
+            margin-left: 150px;
+            display: none;
+        }
+        .middle .middle1{
+            color: #00b262;
+            font-size: 24px;
+        }
+        .middle .middle2{
+            color: black;
+            font-size: 20px;
+        }
+        .middle{
+            position: absolute;
+            top: 153px;
+            left: 0;
+            display: none;
+        }
+        .li3{
+            background: #00b262;
+            color: #fff;
+        }
+        .footer1{
+            display: block;
+        }
+        .middle3{
+            display: block;
+        }
+    </style>
+<body>
+    <div id="container">
+        <ul>
+            <li class="li1 li3">
+                <a id="a1" href="">今日疯抢</a>
+            </li>
+            <li class="li1">
+                <a id="a2" href="">量贩装</a>
+            </li>
+        </ul>
+        <div class="footer footer1">
+            <img src="../img/zhichou.jpg" alt="">
+        </div>
+        <div class="footer">
+            <img src="../img/xijiejing.jpg" alt="">
+        </div>
+        <div class="middle middle3">
+            <div class="middle1">限时限量疯抢</div>
+            <div class="middle2">1元超值疯抢中</div>
+        </div>
+        <div class="middle">
+            <div class="middle1">蓝月亮洗洁精</div>
+            <div class="middle2">限时抢半价</div>
+        </div>
+    </div>
+    <script>
+        var aLi = document.getElementsByClassName('li1');
+        var aFooter = document.getElementsByClassName('footer');
+        var aMiddle = document.getElementsByClassName('middle');
+        for(var i = 0 ; i < aLi.length ; i++){
+            aLi[i].xx = i;
+            aLi[i].onmouseover = function () {
+                for(var j = 0 ; j < aLi.length ; j++){
+                    aLi[j].className = '';
+                    aFooter[j].className = 'footer';
+                    aMiddle[j].className = 'middle';
+                }
+                this.className = 'li1 li3';
+                aFooter[this.xx].className = 'footer footer1';
+                aMiddle[this.xx].className = 'middle middle3';
+            }
+        }
+    </script>
+</body>
+</html>
