@@ -32,23 +32,22 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
+            z-index: 99999;
+
         }
         .imgs img{
             width: 520px;
             height: 280px;
             position: absolute;
-            display: none;
         }
         .narrow{
             position: absolute;
             bottom: 10px;
             left: 10px;
+            z-index: 99999;
         }
         .nav .li1{
             background: yellow;
-        }
-        .imgs .img1{
-            display: block;
         }
     </style>
 </head>
@@ -71,6 +70,7 @@
             <span id="next">&gt;</span>
         </ul>
     </div>
+    <script src="jslib.js"></script>
     <script>
         var aLi = document.getElementsByTagName('li');
         var aImg = document.getElementsByTagName('img');
@@ -78,10 +78,17 @@
         var oNext = document.getElementById('next');
         var oContainer = document.getElementById('container')
         var nowxx = 0;
+        var zIndex = 4;
+        for(var i = 0 ; i < aLi.length ; i++){
+            aImg[i].style.zIndex = aImg.length - 1;
+        }
         for(var i = 0 ; i < aLi.length ; i++){
             aLi[i].xx = i;
             aLi[i].onmouseover = function () {
               changeImg(this.xx)
+            }
+            aLi[i].onselectstart = function(){
+                return false;
             }
         }
         oPrve.onclick = function () {
@@ -101,10 +108,11 @@
         function changeImg(nowxx) {
             for(var j = 0 ; j < aLi.length ; j++){
                 aLi[j].className = '';
-                aImg[j].className = '';
             }
             aLi[nowxx].className = 'li1';
-            aImg[nowxx].className = 'img1';
+            aImg[nowxx].style.zIndex = zIndex++;
+            aImg[nowxx].style.opacity = 0;
+            animate(aImg[nowxx],{opacity: 100});
         }
 
         oContainer.onmouseover = function () {
