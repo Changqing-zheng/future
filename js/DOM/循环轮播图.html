@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 390px;
+            height: 200px;
+            margin: 200px auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        #nav{
+            width: 1040px;
+            position: absolute;
+            top: 0px;
+            left: 0;
+        }
+        #nav li{
+            width: 120px;
+            height: 100px;
+            background: #000;
+            color: #fff;
+            float: left;
+            font-size: 40px;
+            text-align: center;
+            line-height: 100px;
+            margin-right: 10px;
+        }
+        #narrow{
+            background: #ccc;
+            color: black;
+            position: absolute;
+            top: 140px;
+            left: 160px;
+        }
+        #narrow span{
+            display: block;
+            width: 40px;
+            height: 40px;
+            float: left;
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="nav" style="left: 0">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="narrow">
+            <span>向左</span>
+            <span>向右</span>
+        </div>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oUl = document.getElementById('nav');
+        var aSpan = document.getElementsByTagName('span');
+        var timer1;
+        var timer2;
+            aSpan[0].onmouseover = function (){
+                clearInterval(timer1);
+                clearInterval(timer2);
+                xx1();
+            }
+            aSpan[1].onmouseover = function () {
+                clearInterval(timer1);
+                clearInterval(timer2);
+                xx2();
+            }
+            xx1 = function(){
+            timer1 = setInterval(function () {
+            oUl.style.left = parseInt(oUl.style.left) - 10 + 'px';
+            if(-parseInt(oUl.style.left) > oUl.offsetWidth / 2){
+                oUl.style.left = 0 + 'px';
+                }
+            },50)
+        }
+            xx1();
+            xx2 = function () {
+             timer2 = setInterval(function () {
+             if(parseInt(oUl.style.left) == 0){
+                 oUl.style.left = -oUl.offsetWidth / 2 + 10 + 'px';
+             }
+             else{
+                 oUl.style.left = parseInt(oUl.style.left) + 10 + 'px';
+             }
+            },50)
+        }
+    </script>
+</body>
+</html>
