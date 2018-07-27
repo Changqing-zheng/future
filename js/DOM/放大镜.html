@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container,#big{
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            cursor: move;
+        }
+        #big{
+            display: none;
+        }
+        #mover{
+            width: 200px;
+            height: 200px;
+            background: #000;
+            position: absolute;
+            top:0;
+            left:0;
+            opacity: .5;
+            display: none;
+        }
+        #big img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="img1" src="1.jpg" alt="">
+        <div id="mover">
+        </div>
+    </div>
+    <div id="big">
+        <img id="img2" src="2.jpg" alt="">
+    </div>
+    <script>
+        var oMover = document.getElementById('mover');
+        var oContainer = document.getElementById('container');
+        var oBig = document.getElementById('big');
+        var oBigImg = document.getElementById('img2');
+        oContainer.onmouseover = function () {
+            oMover.style.display = 'block';
+            oBig.style.display = 'block';
+            oContainer.onmousemove = function (e) {
+                e = e || window.event;
+                var divLeft = e.clientX - 100;
+                var divTop = e.clientY - 100;
+                if (parseInt(divLeft) > 200) {
+                    divLeft = 200 + 'px';
+                }
+                else if (parseInt(divLeft) < 0) {
+                    divLeft = 0 + 'px';
+                }
+                if (parseInt(divTop) > 200) {
+                    divTop = 200 + 'px';
+                }
+                else if (parseInt(divTop) < 0) {
+                    divTop = 0 + 'px';
+                }
+                oMover.style.left = divLeft;
+                oMover.style.top = divTop;
+
+                var xxx = oContainer.offsetWidth - oMover.offsetWidth;
+                var yyy = oContainer.offsetHeight - oMover.offsetHeight;
+
+                var disX = (divLeft / xxx) * (oBigImg.offsetWidth - oBig.offsetWidth);
+                var disY = (divTop / yyy) * (oBigImg.offsetHeight - oBig.offsetHeight);
+
+                oBigImg.style.left = -disX + 'px';
+                oBigImg.style.top = -disY + 'px';
+
+            }
+        }
+        oContainer.onmouseout = function () {
+            oMover.style.display = 'none';
+            oBig.style.display = 'none';
+        }
+     </script>
+</body>
+</html>
