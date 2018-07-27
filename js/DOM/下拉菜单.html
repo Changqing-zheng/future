@@ -55,20 +55,35 @@
     </ul>
     <script>
         var a = document.getElementsByTagName('a');
-        var b = document.getElementsByClassName('sub-menu');
+        // var b = document.getElementsByClassName('sub-menu');
+        // for(var i = 0;i < a.length;i++){
+        //     a[i].xx = i;
+        //     a[i].onclick = function () {
+        //         if(b[this.xx].style.display == 'block'){
+        //             b[this.xx].style.display = 'none';
+        //         }
+        //         else{
+        //             b[this.xx].style.display = 'block';
+        //         }
+        //         return false;
+        //     }
+        // }
+
         for(var i = 0;i < a.length;i++){
-            a[i].xx = i;
+            a[i].flag = true;
             a[i].onclick = function () {
-                if(b[this.xx].style.display == 'block'){
-                    b[this.xx].style.display = 'none';
+                if(this.flag){
+                    this.nextElementSibling.style.display = 'block';
+                    this.flag = false;
                 }
                 else{
-                    b[this.xx].style.display = 'block';
+                    this.nextElementSibling.style.display = 'none';
+                    this.flag = true;
                 }
                 return false;
             }
-
         }
+
     </script>
 </body>
 </html>

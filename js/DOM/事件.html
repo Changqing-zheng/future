@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>11111</li>
+        <li>22222</li>
+        <li>33333</li>
+    </ul>
+    <button id="btn"> </button>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oUl = document.getElementById('ul1');
+        // var oLi = document.getElementById('li');
+        oUl.onclick = function (e) {
+            console.log(e.target.innerHTML);
+        }
+        oBtn.onclick = function () {
+            var nLi = document.createElement('li');
+            nLi.innerHTML = Math.random();
+            oUl.appendChild(nLi);
+        }
+
+
+
+
+    </script>
+</body>
+</html>
