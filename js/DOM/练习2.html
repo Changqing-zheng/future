@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        111
+        <div id="div2">
+            222
+            <div id="div3">
+                333
+            </div>
+        </div>
+    </div>
+<script>
+    var a = document.getElementById('div1');
+    var b = document.getElementById('div2');
+    var c = document.getElementById('div3');
+    div1.addEventListener('click',function () {
+        console.log('m111');
+    },false);
+    div2.addEventListener('click',function () {
+        console.log('m222');
+    },false);
+    div3.addEventListener('click',function () {
+        console.log('m333');
+    },false);
+
+    div1.addEventListener('click',function () {
+        console.log('b111');
+    },true);
+    div2.addEventListener('click',function () {
+        console.log('b222');
+    },true);
+    div3.addEventListener('click',function () {
+        console.log('b222');
+    },true);
+
+//非目标元素先捕获------目标元素看顺序------非目标元素冒泡
+
+</script>
+</body>
+</html>
