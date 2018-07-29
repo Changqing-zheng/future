@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            display: none;
+            border: 1px solid #000;
+            border-top: none;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="ipt">
+    <ul id="ul1">
+        <li>iphone8</li>
+        <li>iphoneX</li>
+        <li>xiaomi</li>
+        <li>huawei</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var oUl = document.getElementById('ul1');
+        $(function () {
+            $('#ipt').on('keyup',function(){
+                oUl.style.display = 'block';
+                var value = $(this).val();
+                $('li').css('color','');
+                if(value != ''){
+                    $('li:contains('+ value +')').css('color','red');
+                }
+                else{
+                    oUl.style.display = 'none';
+                }
+            })
+        })
+    </script>
+</body>
+</html>
