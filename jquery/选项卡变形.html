@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html{
+        position: relative;
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        list-style: none;
+        width: 180px;
+        float: left;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+        background: #ccc;
+        margin-right: 10px;
+        color: #fff;
+    }
+    .div4{
+        width: 600px;
+        height: 400px;
+        background: #ccc;
+        border-top: 1px solid #000;
+        position: absolute;
+        top: 110px;
+        left: 468px;
+        display: none;
+    }
+    ul{
+        position: absolute;
+        top: 70px;
+        left: 468px;
+    }
+    .li1{
+        background: #000;
+        color: #fff;
+    }
+    .div5{
+        display: block;
+    }
+</style>
+<body>
+    <ul>
+        <li class="li1">111
+        </li>
+        <li>222
+        </li>
+        <li>333
+        </li>
+    </ul>
+    <div id="div1" class="div4 div5">
+        s
+    </div>
+    <div id="div2" class="div4">
+        ss
+    </div>
+    <div id="div3" class="div4">
+        sss
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('li').on('click',function () {
+            $(this).addClass('li1').siblings().removeClass('li1');
+            $('div').eq($(this).index()).addClass('div5').siblings().removeClass('div5');
+        })
+
+
+
+    </script>
+</body>
+</html>
