@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #header,#var,#footer{
+            background: #ccc;
+            margin: 30px auto;
+            width: 960px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #img{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #img img{
+            width: 100%;
+        }
+        #container{
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        #left{
+            width: 60%;
+            height: 100%;
+            margin-right: 3%;
+            background: #0f0;
+            float: left;
+        }
+        #right{
+            width: 37%;
+            height: 100%;
+            background: yellow;
+            float: left;
+        }
+        @media (max-width: 960px) {
+            #header,#var,#footer,#img,#container{
+                width: 100%;
+            }
+        }
+        @media (max-width: 560px) {
+            #left,#right{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        页头
+    </div>
+    <div id="var">
+        导航
+    </div>
+    <div id="img">
+        <img src="01.jpg" alt="">
+    </div>
+    <div id="container">
+        <div id="left">
+            dfdfdf df dfddddfdf dfdfd fddddfdfdf df d
+            fdddd fdfdf dfdfdd ddfdfd fdfd fddddfd fdf dfdfd ddd fdfdfdfdfd dddfd fdfdfdfddd
+        </div>
+        <div id="right">
+            dfdfdf df dfddddfdf dfdfd fddddfdfdf df
+            dfdddd fdfdf dfdfdd ddfdfd fdfd fddddfd fdf dfdfd ddd fdfdfdfdfd dddfd fdfdfdfddd
+        </div>
+    </div>
+    <div id="footer">
+        页尾
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small{
+            width: 400px;
+            height: 400px;
+            float: left;
+        }
+        #big{
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+            display: none;
+        }
+        #mover{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            opacity: .5;
+            position: absolute;
+            display: none;
+        }
+        #img2{
+            position: absolute;
+        }
+        #big{
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="small">
+        <div id="mover"></div>
+        <img src="1.jpg" alt="">
+    </div>
+    <div id="big">
+        <img id="img2" src="2.jpg" alt="">
+    </div>
+    <script>
+        var oMover = document.getElementById('mover');
+        var oSmall = document.getElementById('small');
+        var oBig = document.getElementById('big');
+        var oImg = document.getElementById('img2');
+        oSmall.onmouseover = function () {
+            oMover.style.display = 'block';
+            oBig.style.display = 'block';
+            oSmall.onmousemove = function (e) {
+                e = e || window.event;
+                var iLeft = e.clientX - oMover.offsetWidth / 2;
+                var iTop = e.clientY - oMover.offsetHeight / 2;
+                if(iLeft < 0){
+                    iLeft = 0;
+                }
+                else if(iLeft > oSmall.offsetWidth - oMover.offsetWidth){
+                    iLeft = oSmall.offsetWidth - oMover.offsetWidth;
+                }
+                if(iTop < 0){
+                    iTop = 0;
+                }
+                else if(iTop > oSmall.offsetHeight - oMover.offsetHeight){
+                    iTop = oSmall.offsetHeight - oMover.offsetHeight
+                }
+                var xx = (iLeft / (oSmall.offsetWidth - oMover.offsetWidth))
+                    * (oImg.offsetWidth - oBig.offsetWidth);
+                var yy = (iTop / (oSmall.offsetHeight - oMover.offsetHeight))
+                    * (oImg.offsetHeight - oBig.offsetHeight);
+
+                oImg.style.left = -xx + 'px';
+                oImg.style.top = -yy + 'px';
+
+                oMover.style.left = iLeft + 'px';
+                oMover.style.top = iTop + 'px';
+            }
+        }
+        oSmall.onmouseout = function () {
+            oMover.style.display = 'none';
+            oBig.style.display = 'none';
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
