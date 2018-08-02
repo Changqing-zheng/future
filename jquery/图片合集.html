@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #container img{
+            width: 25%;
+            float: left;
+            border-right: 4px solid #000;
+            border-bottom: 4px solid #000;
+            box-sizing: border-box;
+        }
+        #big{
+            display: none;
+            height: 100%;
+            /*background: url("web相册/img/1.jpg");*/
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <div id="big">
+
+    </div>
+    <script src="zepto.js"></script>
+    <script src="touch.js"></script>
+    <script>
+        $(function () {
+            var iNow;
+            for(var i = 1 ; i < 25 ; i++) {
+                $('#container').append('<img src="web相册/img/thumbs/' + i + '.jpg">');
+            }
+            $('#container').on('tap','img',function() {
+                $('#container').hide();
+                iNow = $(this).index();
+                $('#big').css('background-image','url(web相册/img/' + ($(this).index() + 1) + '.jpg)').show();
+            })
+            $('#big').on('tap',function () {
+                $('#big').hide();
+                $('#container').show();
+            })
+            $('#big').on('swipeLeft',function () {
+                iNow++;
+                if(iNow == 24){
+                    iNow = 0;
+                }
+                $('#big').css('background-image','url(web相册/img/' + (iNow + 1) + '.jpg)');
+            })
+            $('#big').on('swipeRight',function () {
+                iNow--;
+                if(iNow == -1){
+                    iNow = 23;
+                }
+                $('#big').css('background-image','url(web相册/img/'+ (iNow + 1) + '.jpg)')
+            })
+        })
+    </script>
+</body>
+</html>
