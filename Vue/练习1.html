@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app" >
+    <input type="text" v-model="val">
+    <button @click="fun">add</button>
+    <ul id="ul1">
+        <li id="li1"></li>
+    </ul>
+</div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                val:""
+            },
+            methods:{
+                fun(){
+                    var oLi = document.getElementById('li1');
+                    oLi.append(this.val);
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

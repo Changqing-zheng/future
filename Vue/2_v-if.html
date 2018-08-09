@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--<div v-if="xx">-->
+            <!--sssssssssssss-->
+        <!--</div>-->
+        <!--<div v-else-if="xx">-->
+            <!--ddddddddddddddd-->
+        <!--</div>-->
+        <!--<p v-else>-->
+            <!--wwwwwwwwwwww-->
+        <!--</p>-->
+
+        <!--<div v-show="xx">-->
+            <!--<p>sssssss</p>-->
+            <!--<h1>wwwwww</h1>-->
+            <!--<span>dddddd</span>-->
+        <!--</div>-->
+        <template>
+            <p>sssssss</p>
+            <h1>wwwwww</h1>
+            <span>dddddd</span>
+        </template>
+        //template：模块的意思，功能是可以让本层的标签不显示，只显示它下面的标签
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:'A',
+                xx:false
+            }
+        })
+    </script>
+</body>
+</html>

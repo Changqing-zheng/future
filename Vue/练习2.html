@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            width: 400px;
+            height: 50px;
+            background: #0f0;
+            margin-bottom: 10px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        #app{
+            margin: 50px auto;
+            width: 500px;
+            height: 350px;
+        }
+        #app h1{
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        .span1{
+            float: left;
+        }
+        .span2{
+            float: right;
+        }
+        #footer{
+            width: 500px;
+            height: 50px;
+            margin: 403px auto;
+            position: absolute;
+            top: 0;
+            left: 509px;
+            border-top: 3px solid #CCCCCC;
+        }
+        .red{
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>services</h1>
+        <ul>
+            <li @click="click1" :class="{red:isRed}">
+                <span class="span1">aaa</span>
+                <span id="one" class="span2">234</span>
+            </li>
+            <li @click="click2" :class="{red:isRed}">
+                <span class="span1">bbb</span>
+                <span id="two" class="span2">927</span>
+            </li>
+            <li @click="click3" :class="{red:isRed}">
+                <span class="span1">ccc</span>
+                <span id="three" class="span2">247</span>
+            </li>
+            <li @click="click4" :class="{red:isRed}">
+                <span class="span1">ddd</span>
+                <span id="four" class="span2">316</span>
+            </li>
+            <li @click="click5" :class="{red:isRed}">
+                <span class="span1">ccc</span>
+                <span id="five" class="span2">532</span>
+            </li>
+        </ul>
+        <div id="footer">
+            <span class="span1">
+            total
+            </span>
+            <span class="span2">
+            {{msg}}
+            </span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:0,
+                val:"",
+                isRed:false
+            },
+            methods:{
+                click1(){
+                    this.msg = one.innerHTML * 1;
+                    this.isRed = !this.isRed;
+                },
+                click2(){
+                    this.msg = two.innerHTML *1;
+                    this.isRed = !this.isRed;
+                },
+                click3(){
+                    this.msg = three.innerHTML *1;
+                    this.isRed = !this.isRed;
+                },
+                click4(){
+                    this.msg = four.innerHTML *1;
+                    this.isRed = !this.isRed;
+                },
+                click5(){
+                    this.msg = five.innerHTML *1;
+                    this.isRed = !this.isRed;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

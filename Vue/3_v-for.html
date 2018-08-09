@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--<ul>-->
+            <!--<li  v-for="val in stuList">-->
+                <!--{{val.name}},{{val.age}}-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        <!--<ul>-->
+            <!--<li v-for=" val in arr">-->
+                <!--{{val}}-->
+            <!--</li>-->
+        <!--</ul>-->
+        <ul>
+            <li v-for="(val,key,index)
+             in obj">
+                {{val}},{{key}},{{index}}
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                arr:[111,222,333],
+                stuList:[{
+                    name:'zs',
+                    age:12
+                },{
+                    name:'ls',
+                    age:13
+                },{
+                    name:'ww',
+                    age:14
+                }],
+                obj:{
+                    a:1,
+                    b:2,
+                    c:3
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
