@@ -10,16 +10,16 @@
     </style>
 </head>
 <body>
-<div id="app" >
-    <input type="text" v-model="val" @keyup="search">
-    <button @click="fun">add</button>
-    <ul>
-        <li v-for="(obj,index) in showArr" :class="{red:obj.active}" @click="obj.active = !obj.active">
-            {{obj.name}}
-            <button @click="del">del</button>
-        </li>
-    </ul>
-</div>
+    <div id="app">
+        <input type="text" v-model="val" @keyup="find">
+        <button @click="click1">add</button>
+        <ul>
+            <li v-for="(obj,index) in showArr" @click="click2(obj)" :class="{red:obj.active}">
+                {{obj.name}}
+                <button @click="del">del</button>
+            </li>
+        </ul>
+    </div>
     <script src="vue.js"></script>
     <script>
         var vm = new Vue({
@@ -30,25 +30,29 @@
                 showArr:[]
             },
             methods:{
-                fun(){
+                click1(){
                     this.arr.push({name:this.val,active:false});
-                    this.val = "";
                     this.arr.sort(function (a , b) {
                         return a.name - b.name;
                     });
                     this.showArr = this.arr;
                 },
-                search(){
+                click2(obj){
+                    obj.active = !obj.active;
+                },
+                find(){
                     var newArr = this.arr.filter((elem , index)=>{
                         return elem.name.indexOf(this.val) != -1;
                     });
                     this.showArr = newArr;
                 },
-                del(index){
-                    this.showArr.splice(index,1);
+                del(){
+                    this.showArr.splice(this.arr.index , 1);
                 }
             }
+
         })
+
     </script>
 </body>
 </html>

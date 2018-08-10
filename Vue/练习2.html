@@ -42,7 +42,19 @@
             left: 509px;
             border-top: 3px solid #CCCCCC;
         }
-        .red{
+        .red1{
+            background: #f00;
+        }
+        .red2{
+            background: #f00;
+        }
+        .red3{
+            background: #f00;
+        }
+        .red4{
+            background: #f00;
+        }
+        .red5{
             background: #f00;
         }
     </style>
@@ -51,23 +63,23 @@
     <div id="app">
         <h1>services</h1>
         <ul>
-            <li @click="click1" :class="{red:isRed}">
+            <li @click="click1" :class="{red1:isRed1}">
                 <span class="span1">aaa</span>
                 <span id="one" class="span2">234</span>
             </li>
-            <li @click="click2" :class="{red:isRed}">
+            <li @click="click2" :class="{red2:isRed2}">
                 <span class="span1">bbb</span>
                 <span id="two" class="span2">927</span>
             </li>
-            <li @click="click3" :class="{red:isRed}">
+            <li @click="click3" :class="{red3:isRed3}">
                 <span class="span1">ccc</span>
                 <span id="three" class="span2">247</span>
             </li>
-            <li @click="click4" :class="{red:isRed}">
+            <li @click="click4" :class="{red4:isRed4}">
                 <span class="span1">ddd</span>
                 <span id="four" class="span2">316</span>
             </li>
-            <li @click="click5" :class="{red:isRed}">
+            <li @click="click5" :class="{red5:isRed5}">
                 <span class="span1">ccc</span>
                 <span id="five" class="span2">532</span>
             </li>
@@ -88,28 +100,39 @@
             data:{
                 msg:0,
                 val:"",
-                isRed:false
+                isRed1:false,
+                isRed2:false,
+                isRed3:false,
+                isRed4:false,
+                isRed5:false,
             },
             methods:{
                 click1(){
-                    this.msg = one.innerHTML * 1;
-                    this.isRed = !this.isRed;
+                    // this.msg = one.innerHTML * 1;
+                    this.isRed1 = !this.isRed1;
+                    var S , S1;
+                    S1 = one.innerHTML * 1;
+                    S = this.msg * 1;
+                    S += S1;
+                    this.msg = S;
                 },
                 click2(){
                     this.msg = two.innerHTML *1;
-                    this.isRed = !this.isRed;
+                    this.isRed2 = !this.isRed2;
+                    S2 = this.msg * 1 + two.innerHTML * 1;
+                    S += S2;
                 },
                 click3(){
                     this.msg = three.innerHTML *1;
-                    this.isRed = !this.isRed;
+                    this.isRed3 = !this.isRed3;
                 },
                 click4(){
                     this.msg = four.innerHTML *1;
-                    this.isRed = !this.isRed;
+                    this.isRed4 = !this.isRed4;
                 },
                 click5(){
                     this.msg = five.innerHTML *1;
-                    this.isRed = !this.isRed;
+                    this.isRed5 = !this.isRed5;
                 }
             }
         })
