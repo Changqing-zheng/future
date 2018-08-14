@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <demo xx="13" x-x-x="16" :yy="m1"></demo>
+        {{msg}}
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"15",
+                m1:"haha"
+            },
+            //局部组件
+            components:{
+                demo:{
+                    template:"<div>{{xx}} <h1>wwwwwwwwww{{XXX}}</h1>{{yy}}</div>",
+                    props:["xx","XXX","yy"]
+                }
+            }
+        })
+    </script>
+</body>
+</html>

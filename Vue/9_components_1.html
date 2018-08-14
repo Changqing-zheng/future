@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <demo xx="13" x-x-x="16" :yy="m1">
+            <p slot="p1">LLLLLLLLLL</p>
+            <p>KKKKKKKKKKK</p>
+        </demo>
+        <demo></demo>
+        {{msg}}v
+    </div>
+    <script type="text/x-template" id="temp">
+        <div>
+            {{xx}}
+            <slot name="p1">
+                <p>5555555555</p>
+            </slot>
+            <h1>wwwwwwwwwww{{XXX}}</h1>
+            <slot name="p2">
+                <p>6666666666</p>
+            </slot>
+            {{yy}}
+        </div>
+    </script>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"15",
+                m1:"haha"
+            },
+            //局部组件
+            components:{
+                demo:{
+                    template:"#temp",
+                    props:["xx","XXX","yy"]
+                }
+            }
+        })
+    </script>
+</body>
+</html>
