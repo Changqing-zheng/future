@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+        }
+        .a{
+            text-align: center;
+        }
+        .b{
+            height: 50px;
+            width: 800px;
+            margin: 0 auto;
+            background: #0f0;
+            border: 1px solid black;
+        }
+        .c{
+            margin: 0 auto;
+            height: 50px;
+            width: 800px;
+        }
+        .d{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    msg:"",
+                    Li:[
+                        {
+                            name:"吃饭"
+                        },
+                        {
+                            name:"睡觉"
+                        },
+                        {
+                            name:"打豆豆"
+                        }
+                    ]
+                }
+            }
+            saveHandle(val){
+                var arr = this.state.Li;
+                arr.push({name:val});
+                this.setState({
+                    Li:arr
+                })
+            }
+            delHandle(index){
+                var arrs = this.state.Li;
+                arrs.splice(index , 1);
+                this.setState({
+                    Li:arrs
+                })
+            }
+            render(){
+                return (
+                    <div>
+                        <h1 className="a">todoList</h1>
+                        <Header myClick={this.saveHandle.bind(this)}></Header>
+                        <List aa={this.state.Li} myClicks={this.delHandle.bind(this)}></List>
+                    </div>
+                )
+            }
+        }
+
+        class Header extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            save(){
+                if(this.refs.xx.value != ""){
+                    this.props.myClick(this.refs.xx.value);
+                    this.refs.xx.value="";
+                }
+            }
+            render(){
+                return (
+                    <div className="c">
+                        <div>
+                            <span>任务:</span> <input type="text" placeholder="安排新的任务吧..." ref="xx" />
+                        </div>
+                        <button onClick={this.save.bind(this)}>保存任务</button>
+                    </div>
+                )
+            }
+        }
+
+        class List extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return (
+                    <div>
+                        <ul>
+                            {
+                                this.props.aa.map((ele,index)=>{
+                                return (
+                                        <li key={index} className="b">
+                                            <input type="checkbox"/>{ele.name}
+                                            <button className="d" onClick={()=>{
+                                                this.props.myClicks(this.props.index)
+                                            }}>删除</button>
+                                        </li>
+                                )
+                                })
+                            }
+                            <li className="b">0已完成/3全部</li>
+                        </ul>
+                    </div>
+                )
+            }
+
+        }
+
+        ReactDOM.render(
+            <Main></Main>
+            ,
+            document.getElementById("root")
+        )
+
+
+    </script>
+</body>
+</html>

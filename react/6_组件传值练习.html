@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    count1:100,
+                }
+            }
+            change1(){
+                if(this.state.count1-10 < 0){
+                    this.setState({
+                        count:0
+                    })
+                }
+                else{
+                    this.setState({
+                        count1:this.state.count1-10
+                    })
+                }
+            }
+            change4(){
+                if(this.state.count1-5 < 0){
+                    this.setState({
+                        count:0
+                    })
+                }
+                else{
+                    this.setState({
+                        count1:this.state.count1-5
+                    })
+                }
+            }
+            render(){
+                return (
+                <div>
+                    <span>全部士兵剩余数量 : </span>{this.state.count1}
+                    <Product1 myClick1={this.change1.bind(this)} num={this.state.count1}/>
+                    <Product2 myClick2={this.change4.bind(this)} num={this.state.count1}/>
+                </div>
+                )
+            }
+        }
+        class Product1 extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    count2:100
+                }
+            }
+            change2(){
+                if(this.props.num-10 < 0){
+                    this.setState({
+                        count2:this.state.count2+0
+                    })
+                }
+                else{
+                    this.setState({
+                        count2:this.state.count2+10
+                    })
+                }
+            }
+            render(){
+                return (
+                    <div>
+                        <span>将军A有士兵 : </span>{this.state.count2}
+                        <button onClick={()=>{this.props.myClick1(),this.change2()}}>调兵</button>
+                    </div>
+                )
+            }
+        }
+        class Product2 extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    count3:100
+                }
+            }
+            change3(){
+                if(this.props.num-5 < 0){
+                    this.setState({
+                        count3:this.state.count3+0
+                    })
+                }
+                else{
+                    this.setState({
+                        count3:this.state.count3+5
+                    })
+                }
+            }
+            render(){
+                return (
+                    <div>
+                        <span>将军B有士兵 : </span>{this.state.count3}
+                        <button onClick={()=>{this.props.myClick2(),this.change3()}}>调兵</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Main></Main>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

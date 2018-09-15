@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        const Foot = (props)=>{
+            return (
+                <div>
+                    <h1>{props.name}</h1>
+                    <h2>{props.age}</h2>
+                    <h3>{props.children}</h3>
+                </div>
+            )
+        };
+        ReactDOM.render(
+            <Foot name="baba" age="18">wudi</Foot>,
+            document.getElementById("root")
+        );
+
+
+    </script>
+</body>
+</html>
