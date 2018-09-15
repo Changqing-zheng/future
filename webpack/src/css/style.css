@@ -1,0 +1,12 @@
+div{
+    width: 200px;
+    height: 200px;
+    background: url(../img/weichuang.jpeg);
+    transform : rotate(30deg);
+}
+.content{
+    width: 200px;
+}
+.selected{
+    height: 200px;
+}

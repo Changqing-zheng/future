@@ -14,8 +14,9 @@
             height: 50px;
             width: 800px;
             margin: 0 auto;
-            background: #0f0;
+            background: #00f;
             border: 1px solid black;
+            text-decoration: line-through;
         }
         .c{
             margin: 0 auto;
@@ -25,7 +26,13 @@
         .d{
             float: right;
         }
-
+        .e{
+            height: 50px;
+            width: 800px;
+            margin: 0 auto;
+            background: #0f0;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
@@ -38,23 +45,34 @@
             constructor(props){
                 super(props);
                 this.state = {
+                    count:0,
                     msg:"",
                     Li:[
                         {
-                            name:"吃饭"
+                            id:0,
+                            name:"吃饭",
+                            isFinished:true
                         },
                         {
-                            name:"睡觉"
+                            id:1,
+                            name:"睡觉",
+                            isFinished:false
                         },
                         {
-                            name:"打豆豆"
+                            id:2,
+                            name:"打豆豆",
+                            isFinished:false
                         }
                     ]
                 }
             }
             saveHandle(val){
                 var arr = this.state.Li;
-                arr.push({name:val});
+                arr.push({
+                    id:this.state.Li[this.state.Li.length-1].id+1,
+                    name:val,
+                    isFinished:false
+                });
                 this.setState({
                     Li:arr
                 })
@@ -66,12 +84,28 @@
                     Li:arrs
                 })
             }
+            changeHandle(index){
+                var arrss = this.state.Li;
+                arrss[index].isFinished = !arrss[index].isFinished;
+                this.setState({
+                    Li:arrss
+                });
+                let num = 0;
+                arrss.forEach((ele)=>{
+                    if(ele.isFinished){
+                        num++
+                    }
+                });
+                this.setState({
+                    count:num
+                })
+            }
             render(){
                 return (
                     <div>
                         <h1 className="a">todoList</h1>
                         <Header myClick={this.saveHandle.bind(this)}></Header>
-                        <List aa={this.state.Li} myClicks={this.delHandle.bind(this)}></List>
+                        <List count={this.state.count} aa={this.state.Li} myClicks={this.delHandle.bind(this)} change={this.changeHandle.bind(this)}></List>
                     </div>
                 )
             }
@@ -110,16 +144,18 @@
                             {
                                 this.props.aa.map((ele,index)=>{
                                 return (
-                                        <li key={index} className="b">
-                                            <input type="checkbox"/>{ele.name}
+                                        <li key={ele.id} className={ele.isFinished ? 'b' : 'e'}>
+                                            <input type="checkbox" defaultChecked={ele.isFinished} onClick={()=>{
+                                                this.props.change(index)
+                                            }}/>{ele.name}
                                             <button className="d" onClick={()=>{
-                                                this.props.myClicks(this.props.index)
+                                                this.props.myClicks(index)
                                             }}>删除</button>
                                         </li>
                                 )
                                 })
                             }
-                            <li className="b">0已完成/3全部</li>
+                            <li className="e">{this.props.count}已完成/{this.props.aa.length}全部</li>
                         </ul>
                     </div>
                 )
