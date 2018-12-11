@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function add(...b) {
+            var num = 0;
+
+            function fn(...a) {
+                if(a.length == 0){
+                    return num;
+                }
+                else{
+                    num += a[0];
+                    return fn;
+                }
+            }
+            return fn(b[0]);
+        }
+        console.log(add(1)(2)(3)(4)(5)());
+
+
+
+    </script>
+</body>
+</html>
