@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var str = 'hello world,hi bilibili';
+
+        function fn(){
+            var result = [];
+            var arr = str.split(' ');
+            // ['hello','world,hi',bilibili'];
+            arr.reverse();
+            for(var i=0; i<arr.length;i++){
+                var arr1 = arr[i].split(',');
+                arr1.reverse();
+                var str1 = arr1.join(',');
+                result.push(str1);
+                // result = [...result,...arr1];
+            }
+
+            console.log( result.join(' ') );
+            // console.log(result);
+        }
+        fn();
+    </script>
+
+    </script>
+</body>
+</html>
