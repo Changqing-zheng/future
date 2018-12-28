@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         #header{
             font-size: 40px;
             text-align: center;
-            margin: 50px auto;
+            margin: 30px auto;
             width: 800px;
         }
         .look{
@@ -54,10 +58,29 @@
             border-bottom: 1px solid #000;
             overflow: hidden;
         }
+        #ipt{
+            width: 750px;
+            height: 19px;
+            border: 1px solid #f00;
+            margin: 0 0 20px 370px;
+            text-align: center;
+        }
+        #span6{
+            border: 1px solid #f00;
+            background: #f00;
+            height: 20px;
+            position: absolute;
+            top: 84px;
+            left: 1122px;
+        }
+        body{
+            position: relative;
+        }
     </style>
 </head>
 <body>
     <h1 id="header">查询员工信息</h1>
+    <input id="ipt" type="text" placeholder="按ID/姓名查询"><span id="span6">搜索</span>
     <div class="look">
         <img class="img" src="20141026184501_VRVZW.jpeg" alt="">
         <div class="div1">
