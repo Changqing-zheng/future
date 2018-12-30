@@ -8,51 +8,79 @@
             margin: 0;
             padding: 0;
         }
+        body{
+            background: #ccc;
+        }
         #container{
-            border: 1px solid #000;
-            width: 840px;
-            height: 600px;
-            margin: 48px auto;
+            width: 300px;
+            height: 200px;
+            background: #fff;
+            margin: 200px 0 0 850px;
+            padding: 10px;
         }
         #header{
-            font-size: 50px;
-            text-align: center;
-            margin-bottom: 100px;
+            color: #ff552e;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 5px;
         }
-        .div1{
-            margin-left: 200px;
-            margin-bottom: 50px;
+        #p1{
+            height: 20px;
+            font-size: 12px;
+            line-height: 20px;
+            margin-bottom: 10px;
         }
-        #username{
-            width: 300px;
+        #userid{
+            width: 200px;
         }
         #password{
-            width: 300px;
+            width: 200px;
         }
-        .p1{
-            font-size: 20px;
+        .div1{
+            margin-bottom: 10px;
         }
-        #btn{
-            width: 100px;
-            height: 50px;
-            background: transparent;
-            margin: 50px 0 0 370px;
+        #ipt1{
+            width: 14px;
+            height: 14px;
         }
-        #btn:hover{
-            background: #0f0;
+        .span1{
+            font-size: 12px;
+            color: #cccccc;
+        }
+        .span2{
+            font-size: 12px;
+            color: #cccccc;
+            float: right;
+        }
+        #div2{
+            height: 20px;
+            margin-bottom: 20px;
+        }
+        #ipt2{
+            width: 250px;
+            margin: 0 0 0 25px;
+            color: #fff;
+            background: #ff552e;
+            border: none;
+            height: 25px;
         }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="header">登录</div>
+        <p id="p1">请输入您的ID和密码</p>
         <div class="div1">
-            <span class="p1">用户名：</span><input id="username" type="text">
+            <span>用户ID&nbsp&nbsp&nbsp：</span><input id="userid" type="text" placeholder="您的用户ID">
         </div>
         <div class="div1">
-            <span class="p1">密码&nbsp&nbsp&nbsp：</span><input id="password" type="text">
+            <span>用户密码：</span><input id="password" type="text" placeholder="您的密码">
         </div>
-        <input id="btn" type="submit" value="登录">
+        <div id="div2">
+            <input id="ipt1" type="checkbox"><span class="span1">自动登录</span>
+            <span class="span2">忘记密码？</span>
+        </div>
+        <input id="ipt2" type="submit" value="登录">
     </div>
 </body>
 </html>
