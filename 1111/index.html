@@ -8,47 +8,60 @@
             margin: 0;
             padding: 0;
         }
-        #header{
-            margin: 50px;
-            text-align: center;
+        body{
+            background: url("img/u=4112542121,1949422788&fm=26&gp=0.jpg") no-repeat;
+            background-size: 100%;
         }
-        #div1{
-            border: 1px solid #f00;
-            color: red;
+        #container{
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
         }
-        #div1:hover{
-            color: yellow;
-        }
-        #div2{
-            border: 1px solid #0f0;
-            color: #0f0;
-        }
-        #div2:hover{
-            color: yellow;
-        }
-        #div3{
-            border: 1px solid #00f;
-            color: #00f;
-        }
-        #div3:hover{
-            color: yellow;
-        }
-        .div4{
-            font-size: 40px;
+        .div1{
+            width: 200px;
             height: 200px;
+            float: left;
+        }
+        img{
+            width: 190px;
+            height: 170px;
+            padding: 5px;
+        }
+        span{
+            width: 200px;
+            height: 20px;
             text-align: center;
-            line-height: 200px;
             display: block;
-            text-decoration: none;
-            width: 1000px;
-            margin: 1px auto;
+            line-height: 20px;
         }
     </style>
 </head>
 <body>
-    <h1 id="header">商品房销售管理系统</h1>
-    <a class="div4" id="div1" href="http://localhost:63342/future/1111/search.html">搜索</a>
-    <a class="div4" id="div2" href="">增加房屋信息</a>
-    <a class="div4" id="div3" href="">查询员工信息</a>
+    <div id="container">
+        <div class="div1">
+            <img src="img/timg.jpg" alt="">
+            <span>搜索房屋信息</span>
+        </div>
+        <div class="div1">
+            <img src="img/55934ad910cff.jpg" alt="">
+            <span>添加房屋信息</span>
+        </div>
+        <div class="div1">
+            <img src="img/20141026184501_VRVZW.jpeg" alt="">
+            <span>查看客户信息</span>
+        </div>
+        <div class="div1">
+            <img src="img/15295607688582457.jpg" alt="">
+            <span>查看员工信息</span>
+        </div>
+        <div class="div1">
+            <img src="img/u=3939986181,3532380870&fm=26&gp=0.jpg" alt="">
+            <span>添加员工信息</span>
+        </div>
+        <div class="div1">
+            <img src="img/dingdan.jpg" alt="">
+            <span>查看订单信息</span>
+        </div>
+    </div>
 </body>
 </html>
