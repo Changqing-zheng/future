@@ -8,7 +8,7 @@
       <div class="carousel">
           <van-swipe :autoplay="3000">
               <van-swipe-item class="carousel-item" v-for="(item, index) in carouselItem" :key="index">
-                  <img :src="item.imgSrc" alt="">
+                  <img v-lazy="item.imgSrc" alt="">
               </van-swipe-item>
           </van-swipe>
       </div>
@@ -18,7 +18,7 @@
           <swiper class="hot-swiper" :options="swiperOption">
                 <swiper-slide v-for="(item, index) in hotProducts" :key="index">
                     <div class="hot-swiper-content">
-                        <img :src="item.img" alt="">
+                        <img v-lazy="item.img" alt="">
                         <div>{{item.name}}</div>
                         <div>￥{{item.price}}</div>
                     </div>
@@ -49,7 +49,7 @@ export default {
                     imgSrc:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=116744544,2055858210&fm=26&gp=0.jpg"
                 },{
                     name:'img3',
-                    imgSrc:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2575316954,1455223078&fm=26&gp=0.jpg"
+                    imgSrc:"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1041994715,1243354266&fm=26&gp=0.jpg"
                 }
             ],
             hotProducts:[
