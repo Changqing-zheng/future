@@ -4,54 +4,47 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .dot-box {
-            width: 60px;
-            height: 60px;
-            border: 1px solid #666666;
-            display: flex;
-            padding: 10px;
+        *{
+            margin: 0;
+            padding: 0;
         }
-
-        .dot-item {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: gray;
-        }
-
-        .dot-box-1 {
-            justify-content: center;
-        }
-
-        .dot-box-3 {
-            justify-content: space-between;
-        }
-
-        .dot-1 {
-            align-self: center;
-        }
-
-        .dot-3-1 {
-            align-self: flex-start;
-        }
-
-        .dot-3-2 {
-            align-self: center;
-        }
-
-        .dot-3-3 {
-            align-self: flex-end;
+        #div1{
+            height: 200px;
+            width: 200px;
+            background: blue;
+            position: absolute;
         }
     </style>
 </head>
 <body>
-    <div class="dot-box dot-box-1">
-        <div class="dot-item dot-1"></div>
-    </div>
-    <div class="dot-box dot-box-3">
-        <div class="dot-item dot-3-1"></div>
-        <div class="dot-item dot-3-2"></div>
-        <div class="dot-item dot-3-3"></div>
-    </div>
+<div id="div1"></div>
+<script>
+    var oDiv = document.getElementById("div1");
+    oDiv.onmousedown = function (e) {
+        console.log(this.offsetLeft)
+        var left = e.clientX - this.offsetLeft;
+        var top = e.clientY - this.offsetTop;
+        document.onmousemove = function (e) {
+            console.log(111)
+            var divLeft = e.clientX - left;
+            var divTop = e.clientY - top;
+            if(divLeft > document.documentElement.offsetWidth - oDiv.offsetWidth){
+                divLeft = document.documentElement.offsetWidth - oDiv.offsetWidth;
+            }else if(divLeft < 0){
+                divLeft = 0;
+            }
+            if(divTop > window.innerHeight - oDiv.offsetHeight){
+                divTop = window.innerHeight - oDiv.offsetHeight;
+            }else if(divTop < 0){
+                divTop = 0;
+            }
+            oDiv.style.left = divLeft + "px";
+            oDiv.style.top = divTop + "px";
+        }
+        oDiv.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+</script>
 </body>
 </html>
