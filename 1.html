@@ -5,22 +5,59 @@
     <title>Title</title>
 </head>
 <body>
-    <ul id="UL">
-        <li>0</li>
-        <li>1</li>
-        <li>2</li>
-    </ul>
-    <script>
-        var oUi = document.getElementById("UL");
-        var aLi = document.getElementsByTagName("li");
+<script>
+    var PENDING = 0;
+    var FULFILLED = 1;
+    var REJECTED = 2;
 
-        for(var i = 0 ; i <= aLi.length ; i++){
-            (function(index){
-                aLi[index].onclick = function (index) {
-                    console.log(index);
-                }
-            })(i);
+    var state = PENDING, value = null, deferreds = [];
+
+    function resolve(result) {
+        if(state !== PENDING){
+            return;
         }
-    </script>
+        setTimeout(function () {
+            value = result;
+            state = FULFILLED;
+            done();
+        }, 0)
+    }
+
+    function reject(reason) {
+        if(state !== PENDING){
+            return;
+        }
+        setTimeout(function () {
+            value = reason;
+            state = REJECTED;
+            done();
+        }, 0)
+    }
+
+    function done() {
+        setTimeout(function () {
+            deferreds.forEach(function (deferred) {
+                handle(deferred);
+            })
+        }, 0)
+    }
+
+    function handle(deferred) {
+        if(state === PENDING){
+         deferreds.push(deferred);
+        }
+        else{
+            if(state === FULFILLED){
+                var result = typeof deferred.onFulfilled === 'function' ? deferred.onFulfilled(value) : value;
+                deferred.resolve(result);
+            }
+            else if(state === REJECTED){
+                var reason = typeof deferred.onRejected === 'function' ? deferred.onRejected(value) : value;
+                deferred.reject(reason);
+            }
+        }
+    }
+
+</script>
 </body>
 </html>
